@@ -13,25 +13,25 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
-class Settings(db.Model):
-    id = db.column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, ForeignKey("user.id"))
-    errorCheck = db.Column(db.String(20), default="solution")
-    highlightRelated = db.Column(db.Boolean, default=False)
-    prefillCell = db.Column(db.Boolean, default=False)
-    focusMode = db.Column(db.Boolean, default=False)
-    darkMode = db.Column(db.Boolean, default=True)
-    border = db.Column(db.Boolean, default=False)
-    autoRemove = db.Column(db.Boolean, default=True)
+# class Settings(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, ForeignKey("user.id"))
+#     errorCheck = db.Column(db.String(20), default="solution")
+#     highlightRelated = db.Column(db.Boolean, default=False)
+#     prefillCell = db.Column(db.Boolean, default=False)
+#     focusMode = db.Column(db.Boolean, default=False)
+#     darkMode = db.Column(db.Boolean, default=True)
+#     border = db.Column(db.Boolean, default=False)
+#     autoRemove = db.Column(db.Boolean, default=True)
 
-    def __init__(self, errorCheck, highlightRelated, prefillCell, focusMode, darkMode, border, autoRemove):
-        self.errorCheck = errorCheck
-        self.highlightRelated = highlightRelated
-        self.prefillCell = prefillCell
-        self.focusMode = focusMode
-        self.darkMode = darkMode
-        self.border = border
-        self.autoRemove = autoRemove
+#     def __init__(self, errorCheck, highlightRelated, prefillCell, focusMode, darkMode, border, autoRemove):
+#         self.errorCheck = errorCheck
+#         self.highlightRelated = highlightRelated
+#         self.prefillCell = prefillCell
+#         self.focusMode = focusMode
+#         self.darkMode = darkMode
+#         self.border = border
+#         self.autoRemove = autoRemove
 
 
 
@@ -60,12 +60,12 @@ class User(db.Model):
     username = db.Column(db.String(30), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
 
-class Progress(db.Model):
-    puzzle_id = db.Column(db.Integer, ForeignKey("puzzle.id"))
-    user_id = db.Column(db.Integer, ForeignKey("user.id"))
-    values = db.Column(db.String(300))
-    pencilmarks = db.Column(db.String(400))
-    errorIndex = db.Column(db.Integer, default = -1)
+# class Progress(db.Model):
+#     puzzle_id = db.Column(db.Integer, ForeignKey("puzzle.id"))
+#     user_id = db.Column(db.Integer, ForeignKey("user.id"))
+#     values = db.Column(db.String(300))
+#     pencilmarks = db.Column(db.String(400))
+#     errorIndex = db.Column(db.Integer, default = -1)
 
 
 class PuzzleSchema(ma.Schema):
